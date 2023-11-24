@@ -13,11 +13,6 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <style>
-      .red-border {
-        border: red 1px solid;
-      }
-    </style>
   </head>
   <body>
     <div id="app"></div>
@@ -25,16 +20,17 @@
       const container = document.getElementById('app');
       const root = ReactDOM.createRoot(container);
 
-      const sampleText = 'サンプルテキスト';
-      const cssSample = {
-        fontSize: '20px',
-        color: 'blue',
-        backgroundColor: 'skyblue',
+      function testFunc(num1, num2) {
+        return num1 + num2;
+      }
+
+      const testArrowFunc = (num1, num2) => {
+        return num1 * num2;
       };
 
       const element = (
-        <p style={cssSample} className="red-border">
-          {sampleText}
+        <p>
+          {testFunc(2, 3)}と{testArrowFunc(2, 3)}
         </p>
       );
       root.render(element);
