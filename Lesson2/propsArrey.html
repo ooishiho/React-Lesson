@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      const container = document.getElementById('app');
+      const root = ReactDOM.createRoot(container);
+
+      const ParentComponent = () => {
+        const members = [
+          {
+            id: 1,
+            name: '三藤',
+          },
+          {
+            id: 2,
+            name: '伊藤',
+          },
+          {
+            id: 3,
+            name: '安藤',
+          },
+        ];
+        return (
+          <div>
+            親です。
+            <ChildComponent members={members} />
+          </div>
+        );
+      };
+
+      const ChildComponent = (props) => {
+        console.log(props);
+        return (
+          <div>
+            子どもです。{props.members[0].name}
+            <br />
+            <ul>
+              {props.member.map((member) => (
+                <li key={member.id}>{member.name}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      };
+      root.render(
+        <div>
+          <ParentComponent />
+        </div>
+      );
+    </script>
+  </body>
+</html>
