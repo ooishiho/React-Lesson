@@ -28,7 +28,7 @@
         <button onClick={toggleModal}>画像を表示</button>
 
         <div style={{ display: modalStatus ? 'initial' : 'none' }}>
-          <div className="modal__inner">
+          <div className="modal__inner"> //白い背景
             <div className="modal__close" onClick={()=> setModalStatus(!modalStatus) }><i className="fas fa-times"></i></div>
             <img src="image001.jpg" />
           </div>
@@ -37,9 +37,9 @@
       </>)
     }
 
-    root.render(<>
+    root.render(<div>
     <ModalWindow />
-    </>)
+    </div>)
   </script>
 </body>
 </html>
